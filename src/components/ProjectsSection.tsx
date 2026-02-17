@@ -39,7 +39,7 @@ const ProjectsSection = () => {
   const visible = showAll ? projects : projects.slice(0, 9);
 
   return (
-    <section id="projekt" className="section-padding bg-background" ref={ref}>
+    <section className="section-padding bg-background" ref={ref}>
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -54,7 +54,7 @@ const ProjectsSection = () => {
             Ett urval av projekt
           </h2>
           <p className="body-lg text-muted-foreground">
-            Projekt jag har lett eller samordnat genom åren.
+            Projekt vi har lett eller samordnat genom åren.
           </p>
         </motion.div>
 
