@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Om mig", href: "#om" },
-  { label: "Tjänster", href: "#tjanster" },
-  { label: "Projekt", href: "#projekt" },
-  { label: "Erfarenhet", href: "#erfarenhet" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Tjänster", href: "/tjanster" },
+  { label: "Referensprojekt", href: "/referensprojekt" },
+  { label: "Om bolaget", href: "/om-bolaget" },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -28,20 +29,24 @@ const Navbar = () => {
       }`}
     >
       <div className="container-narrow flex items-center justify-between px-6 md:px-12 lg:px-24 py-5">
-        <a href="#" className="font-serif text-xl tracking-tight text-foreground">
-          Shirzad Consulting
-        </a>
+        <Link to="/" className="font-serif text-xl tracking-tight text-foreground">
+          Shirzad Consulting Group
+        </Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              to={l.href}
+              className={`text-sm font-medium transition-colors ${
+                location.pathname === l.href
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -59,14 +64,18 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden bg-card border-b border-border px-6 pb-6 pt-2">
           {navLinks.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to={l.href}
               onClick={() => setOpen(false)}
-              className="block py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className={`block py-3 text-sm font-medium transition-colors ${
+                location.pathname === l.href
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
       )}

@@ -13,7 +13,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="kontakt" className="section-padding bg-primary" ref={ref}>
+    <section className="section-padding bg-primary" ref={ref}>
       <div className="container-narrow">
         <div className="grid md:grid-cols-2 gap-16">
           <motion.div
@@ -43,20 +43,21 @@ const ContactSection = () => {
               </a>
               <div className="flex items-center gap-4 text-primary-foreground/80">
                 <MapPin size={18} strokeWidth={1.5} />
-                <span>Malmö / Lund, Sverige</span>
+                <span>Lund / Malmö</span>
               </div>
             </div>
 
-            {/* Map */}
+            {/* Interactive map pinning Anslagsvägen 9, 226 47 Lund */}
             <div className="mt-8 rounded overflow-hidden border border-primary-foreground/10">
               <iframe
-                title="Karta Malmö"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d143430.69!2d12.87!3d55.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4653a14f4f1c3e0f%3A0x4019078290e7c40!2sMalm%C3%B6!5e0!3m2!1ssv!2sse!4v1"
+                title="Karta Lund"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2248.5!2d13.1912!3d55.7127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4653931bb4a78b29%3A0x0!2sAnslags%C3%A4gen+9%2C+226+47+Lund!5e0!3m2!1ssv!2sse!4v1"
                 width="100%"
-                height="200"
-                style={{ border: 0, filter: "grayscale(1) contrast(1.1)" }}
+                height="220"
+                style={{ border: 0, filter: "grayscale(0.6) contrast(1.1)" }}
                 allowFullScreen
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </motion.div>

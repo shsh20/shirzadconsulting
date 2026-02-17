@@ -23,7 +23,7 @@ const ServicesSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="tjanster" className="section-padding bg-slate-light" ref={ref}>
+    <section className="section-padding bg-slate-light" ref={ref}>
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -35,7 +35,7 @@ const ServicesSection = () => {
             Tjänster
           </p>
           <h2 className="heading-lg text-foreground">
-            Vad jag erbjuder
+            Vad vi erbjuder
           </h2>
         </motion.div>
 
