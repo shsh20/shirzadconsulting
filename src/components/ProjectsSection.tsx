@@ -10,26 +10,7 @@ interface Project {
   country: string;
 }
 
-const projects: Project[] = [
-  { title: "Svensk Cater", year: "2025", role: "Projektledare", type: "Betongplatta & stålkonstruktion", country: "Sverige" },
-  { title: "Vattenverket", year: "2025", role: "Projektledare", type: "Prefabväggar & bjälklag", country: "Sverige" },
-  { title: "Sillkajen", year: "2025", role: "Projektledare", type: "Prefabricerad bro", country: "Sverige" },
-  { title: "SSAB", year: "2024", role: "Projektledare", type: "Prefabstomme", country: "Sverige" },
-  { title: "Origo Parkeringshus", year: "2023–2024", role: "Projektledare", type: "Prefabstomme", country: "Sverige" },
-  { title: "Flishantering", year: "2023", role: "Projektledare", type: "Avfallsstation", country: "Sverige" },
-  { title: "Campus Vipan", year: "2023", role: "Projektledare / konstruktör", type: "Stålkonstruktion", country: "Sverige" },
-  { title: "KLT", year: "2022–2023", role: "Teknisk samordning", type: "Industribyggnad stål", country: "Sverige" },
-  { title: "E-Piim", year: "2022", role: "Projektledare", type: "Industriell stålstomme", country: "Estland" },
-  { title: "Kilkenny", year: "2022", role: "Projektledare", type: "Stål/pipe supports", country: "Irland" },
-  { title: "OP Grönska", year: "2022", role: "Projektledare", type: "Prefab bjälklag & balkonger", country: "Sverige" },
-  { title: "Rådjuret", year: "2022", role: "Koordinering", type: "Prefabpelare, balk & bjälklag", country: "Sverige" },
-  { title: "Gjuteri", year: "2021", role: "Projektledare", type: "Prefabricerade bjälklag", country: "Sverige" },
-  { title: "Södra Vårvindsgatan", year: "2020", role: "Ass. projektledare", type: "Prefabstomme", country: "Sverige" },
-  { title: "Torp Uddevalla", year: "2020", role: "Projektledare", type: "Stålstomme för köpcentrum", country: "Sverige" },
-  { title: "Psykiatrin Oskarshamn", year: "2018", role: "Projektledare", type: "Sjukhus, stålstomme", country: "Sverige" },
-  { title: "Medicon Village", year: "2017–2018", role: "Projektledare", type: "Forskningscenter", country: "Sverige" },
-  { title: "VIP House Denmark", year: "2016", role: "Projektledare", type: "Stål & prefab", country: "Danmark" },
-];
+const projects: Project[] = [];
 
 const ProjectsSection = () => {
   const ref = useRef(null);
