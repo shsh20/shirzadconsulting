@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Building2, Target, Shield, Users } from "lucide-react";
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
 
 const strengths = [
   "Projektledning inom bygg och industri",
@@ -10,6 +11,14 @@ const strengths = [
   "Tekniska lösningar och projekteringsledning",
   "Tidsplanering, budget, risk och kommunikation",
   "Ledarskap och tvärdisciplinär samordning",
+];
+
+const radarData = [
+  { subject: "Projektledning", value: 95 },
+  { subject: "Prefab-system", value: 90 },
+  { subject: "Tekniska lösningar", value: 88 },
+  { subject: "Tidsplanering", value: 92 },
+  { subject: "Ledarskap", value: 94 },
 ];
 
 const values = [
@@ -89,6 +98,26 @@ const OmBolaget = () => {
                     </li>
                   ))}
                 </ul>
+
+                <div className="mt-8 w-full h-64">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <RadarChart cx="50%" cy="50%" outerRadius="75%" data={radarData}>
+                      <PolarGrid stroke="hsl(var(--border))" />
+                      <PolarAngleAxis
+                        dataKey="subject"
+                        tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }}
+                      />
+                      <Radar
+                        name="Kompetens"
+                        dataKey="value"
+                        stroke="hsl(var(--navy, var(--primary)))"
+                        fill="hsl(var(--navy, var(--primary)))"
+                        fillOpacity={0.15}
+                        strokeWidth={2}
+                      />
+                    </RadarChart>
+                  </ResponsiveContainer>
+                </div>
               </motion.div>
             </div>
 
