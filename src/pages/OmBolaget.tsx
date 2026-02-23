@@ -61,13 +61,17 @@ const OmBolaget = () => {
                   </p>
                   <p>
                     Bolaget bygger på över ett decenniums erfarenhet av att leda och samordna komplexa
-                    projekt – från industriella stålstommar och prefabricerade betongkonstruktioner
-                    till sjukhus, forskningsanläggningar och parkeringshus i Sverige, Danmark, Estland
-                    och Irland.
+                    projekt – från bostad, industri, sjukhus, forskningsanläggningar och parkeringshus
+                    med stålstommar och prefabricerade betongkonstruktioner!
                   </p>
                   <p>
                     Vi kombinerar djup teknisk kompetens med strukturerat projektledarskap för att
                     säkerställa att varje projekt levereras med precision, i tid och inom budget.
+                  </p>
+                  <p className="mt-2">
+                    <a href="mailto:info@shirzadconsulting.se" className="text-navy hover:underline">
+                      info@shirzadconsulting.se
+                    </a>
                   </p>
                 </div>
               </motion.div>

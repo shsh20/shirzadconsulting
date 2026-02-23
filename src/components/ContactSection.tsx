@@ -9,7 +9,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:shirzadnoorullah@gmail.com?subject=Kontakt från ${form.name}&body=${form.message}%0A%0AFrån: ${form.name} (${form.email})`;
+    window.location.href = `mailto:info@shirzadconsulting.se?subject=Kontakt från ${form.name}&body=${form.message}%0A%0AFrån: ${form.name} (${form.email})`;
   };
 
   return (
@@ -33,9 +33,9 @@ const ContactSection = () => {
                 <Phone size={18} strokeWidth={1.5} />
                 <span>+46 765 407 729</span>
               </a>
-              <a href="mailto:shirzadnoorullah@gmail.com" className="flex items-center gap-4 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              <a href="mailto:info@shirzadconsulting.se" className="flex items-center gap-4 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 <Mail size={18} strokeWidth={1.5} />
-                <span>shirzadnoorullah@gmail.com</span>
+                <span>info@shirzadconsulting.se</span>
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 <Linkedin size={18} strokeWidth={1.5} />
