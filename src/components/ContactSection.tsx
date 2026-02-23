@@ -6,10 +6,26 @@ const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:info@shirzadconsulting.se?subject=Kontakt från ${form.name}&body=${form.message}%0A%0AFrån: ${form.name} (${form.email})`;
+    setStatus("sending");
+    try {
+      const res = await fetch("https://formspree.io/f/xkovpqyp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -109,10 +125,17 @@ const ContactSection = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-primary-foreground text-primary py-4 text-sm font-semibold tracking-wide hover:bg-primary-foreground/90 transition-colors"
+                disabled={status === "sending"}
+                className="w-full bg-primary-foreground text-primary py-4 text-sm font-semibold tracking-wide hover:bg-primary-foreground/90 transition-colors disabled:opacity-50"
               >
-                Skicka meddelande
+                {status === "sending" ? "Skickar..." : "Skicka meddelande"}
               </button>
+              {status === "sent" && (
+                <p className="text-sm text-green-400 text-center">Tack! Ditt meddelande har skickats.</p>
+              )}
+              {status === "error" && (
+                <p className="text-sm text-red-400 text-center">Något gick fel. Försök igen.</p>
+              )}
             </form>
           </motion.div>
         </div>
