@@ -68,11 +68,6 @@ const OmBolaget = () => {
                     Vi kombinerar djup teknisk kompetens med strukturerat projektledarskap för att
                     säkerställa att varje projekt levereras med precision, i tid och inom budget.
                   </p>
-                  <p className="mt-2">
-                    <a href="mailto:info@shirzadconsulting.se" className="text-navy hover:underline">
-                      info@shirzadconsulting.se
-                    </a>
-                  </p>
                 </div>
               </motion.div>
 
