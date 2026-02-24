@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="container-narrow flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex flex-col items-center md:items-start gap-1">
         <span className="font-serif text-sm text-background/80">
-          © {new Date().getFullYear()} Shirzad Consulting Group
+          © 2025 Shirzad Consulting Group
         </span>
         <span className="text-xs text-background/40">
           Lund / Malmö
