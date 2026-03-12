@@ -8,19 +8,21 @@ import {
   TrendingUp,
   Users,
 } from "lucide-react";
-
-const services = [
-  { icon: ClipboardList, title: "Projektledning", desc: "Ledning av bygg- och industriprojekt från start till leverans." },
-  { icon: HardHat, title: "Byggkonsultation", desc: "Rådgivning och kvalitetssäkring genom hela byggprocessen." },
-  { icon: Ruler, title: "Projekteringsledning & teknisk koordinering", desc: "Samordning av projekteringsprocesser och tekniska lösningar." },
-  { icon: Box, title: "Stålstommar, prefab-betong & 3D-modellering", desc: "Specialistkompetens inom prefabricerade konstruktionssystem." },
-  { icon: TrendingUp, title: "Kostnadsstyrning, tidplan & riskhantering", desc: "Proaktiv styrning av budget, tid och projektrisker." },
-  { icon: Users, title: "Stöd till beställare & entreprenörer", desc: "Oberoende rådgivning och samordning mellan alla parter." },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const ServicesSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
+
+  const services = [
+    { icon: ClipboardList, title: t("services.1.title"), desc: t("services.1.desc") },
+    { icon: HardHat, title: t("services.2.title"), desc: t("services.2.desc") },
+    { icon: Ruler, title: t("services.3.title"), desc: t("services.3.desc") },
+    { icon: Box, title: t("services.4.title"), desc: t("services.4.desc") },
+    { icon: TrendingUp, title: t("services.5.title"), desc: t("services.5.desc") },
+    { icon: Users, title: t("services.6.title"), desc: t("services.6.desc") },
+  ];
 
   return (
     <section className="section-padding bg-slate-light" ref={ref}>
@@ -32,10 +34,10 @@ const ServicesSection = () => {
           className="mb-16"
         >
           <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
-            Tjänster
+            {t("services.label")}
           </p>
           <h2 className="heading-lg text-foreground">
-            Vad vi erbjuder
+            {t("services.heading")}
           </h2>
         </motion.div>
 

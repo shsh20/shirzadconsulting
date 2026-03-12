@@ -10,11 +10,13 @@ import OmBolaget from "./pages/OmBolaget";
 import Kontakt from "./pages/Kontakt";
 import Karriar from "./pages/Karriar";
 import NotFound from "./pages/NotFound";
+import { LanguageProvider } from "./context/LanguageContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <LanguageProvider>
     <TooltipProvider>
       <Toaster />
       <Sonner />
