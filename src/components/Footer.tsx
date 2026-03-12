@@ -15,8 +15,8 @@ const Footer = () => (
         <Link to="/tjanster" className="text-xs text-background/50 hover:text-background/80 transition-colors">Tjänster</Link>
         <Link to="/referensprojekt" className="text-xs text-background/50 hover:text-background/80 transition-colors">Referensprojekt</Link>
         <Link to="/om-bolaget" className="text-xs text-background/50 hover:text-background/80 transition-colors">Om bolaget</Link>
-        <Link to="/kontakt" className="text-xs text-background/50 hover:text-background/80 transition-colors">Kontakt</Link>
         <Link to="/karriar" className="text-xs text-background/50 hover:text-background/80 transition-colors">Karriär</Link>
+        <Link to="/kontakt" className="text-xs text-background/50 hover:text-background/80 transition-colors">Kontakt</Link>
       </div>
     </div>
   </footer>
