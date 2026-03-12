@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { label: "Tjänster", href: "/tjanster" },
-  { label: "Referensprojekt", href: "/referensprojekt" },
-  { label: "Om bolaget", href: "/om-bolaget" },
-  { label: "Karriär", href: "/karriar" },
-  { label: "Kontakt", href: "/kontakt" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { label: t("nav.tjanster"), href: "/tjanster" },
+    { label: t("nav.referensprojekt"), href: "/referensprojekt" },
+    { label: t("nav.om-bolaget"), href: "/om-bolaget" },
+    { label: t("nav.karriar"), href: "/karriar" },
+    { label: t("nav.kontakt"), href: "/kontakt" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -49,6 +51,31 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
+
+          {/* Language switcher */}
+          <div className="flex items-center gap-1 ml-2 border border-border rounded-sm overflow-hidden text-xs font-medium">
+            <button
+              onClick={() => setLang("sv")}
+              className={`px-2.5 py-1.5 transition-colors ${
+                lang === "sv"
+                  ? "bg-foreground text-background"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Svenska
+            </button>
+            <span className="text-border">|</span>
+            <button
+              onClick={() => setLang("en")}
+              className={`px-2.5 py-1.5 transition-colors ${
+                lang === "en"
+                  ? "bg-foreground text-background"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              English
+            </button>
+          </div>
         </div>
 
         {/* Mobile toggle */}
@@ -78,6 +105,22 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
+          {/* Language switcher mobile */}
+          <div className="flex items-center gap-3 pt-4 border-t border-border mt-2">
+            <button
+              onClick={() => { setLang("sv"); setOpen(false); }}
+              className={`text-sm font-medium transition-colors ${lang === "sv" ? "text-foreground" : "text-muted-foreground"}`}
+            >
+              Svenska
+            </button>
+            <span className="text-border text-xs">|</span>
+            <button
+              onClick={() => { setLang("en"); setOpen(false); }}
+              className={`text-sm font-medium transition-colors ${lang === "en" ? "text-foreground" : "text-muted-foreground"}`}
+            >
+              English
+            </button>
+          </div>
         </div>
       )}
     </nav>

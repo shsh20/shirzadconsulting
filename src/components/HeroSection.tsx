@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
+import { useLanguage } from "@/context/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
@@ -23,7 +26,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="heading-xl text-primary-foreground mb-6"
           >
-            Shirzad Consulting Group
+            {t("hero.title")}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -31,8 +34,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="body-lg text-primary-foreground/75 mb-10 max-w-2xl"
           >
-            Projektledning och byggkonsultation med erfarenhet och precision.
-            Vi leder och strukturerar bygg- och industriprojekt från idé till färdig leverans.
+            {t("hero.subtitle")}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -43,7 +45,7 @@ const HeroSection = () => {
               to="/kontakt"
               className="inline-block bg-primary-foreground text-primary px-8 py-4 text-sm font-semibold tracking-wide hover:bg-primary-foreground/90 transition-colors"
             >
-              Kontakta oss
+              {t("hero.cta")}
             </Link>
           </motion.div>
         </div>

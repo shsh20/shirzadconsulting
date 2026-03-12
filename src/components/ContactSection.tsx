@@ -1,12 +1,14 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Phone, Mail, Linkedin, MapPin } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,16 +40,16 @@ const ContactSection = () => {
             transition={{ duration: 0.5 }}
           >
             <p className="text-sm font-medium tracking-widest uppercase text-primary-foreground/60 mb-4">
-              Kontakt
+              {t("contact.label")}
             </p>
             <h2 className="heading-lg text-primary-foreground mb-8">
-              Låt oss prata om ditt projekt
+              {t("contact.heading")}
             </h2>
 
             <div className="space-y-5">
               <a href="tel:+46765407729" className="flex items-center gap-4 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 <Phone size={18} strokeWidth={1.5} />
-                <span>+46 765 407 729</span>
+                <span>{t("contact.phone")}</span>
               </a>
               <a href="mailto:info@shirzadconsulting.se" className="flex items-center gap-4 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 <Mail size={18} strokeWidth={1.5} />
@@ -55,15 +57,14 @@ const ContactSection = () => {
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 <Linkedin size={18} strokeWidth={1.5} />
-                <span>LinkedIn</span>
+                <span>{t("contact.linkedin")}</span>
               </a>
               <div className="flex items-center gap-4 text-primary-foreground/80">
                 <MapPin size={18} strokeWidth={1.5} />
-                <span>Lund / Malmö</span>
+                <span>{t("contact.location")}</span>
               </div>
             </div>
 
-            {/* Interactive map pinning Anslagsvägen 9, 226 47 Lund */}
             <div className="mt-8 rounded overflow-hidden border border-primary-foreground/10">
               <iframe
                 title="Karta Lund"
@@ -86,7 +87,7 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="text-xs font-medium text-primary-foreground/60 uppercase tracking-wide mb-2 block">
-                  Namn
+                  {t("contact.field.name")}
                 </label>
                 <input
                   type="text"
@@ -94,12 +95,12 @@ const ContactSection = () => {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="w-full bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground px-4 py-3 text-sm placeholder:text-primary-foreground/30 focus:outline-none focus:border-primary-foreground/50 transition-colors"
-                  placeholder="Ditt namn"
+                  placeholder={t("contact.placeholder.name")}
                 />
               </div>
               <div>
                 <label className="text-xs font-medium text-primary-foreground/60 uppercase tracking-wide mb-2 block">
-                  E-post
+                  {t("contact.field.email")}
                 </label>
                 <input
                   type="email"
@@ -107,12 +108,12 @@ const ContactSection = () => {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground px-4 py-3 text-sm placeholder:text-primary-foreground/30 focus:outline-none focus:border-primary-foreground/50 transition-colors"
-                  placeholder="din@epost.se"
+                  placeholder={t("contact.placeholder.email")}
                 />
               </div>
               <div>
                 <label className="text-xs font-medium text-primary-foreground/60 uppercase tracking-wide mb-2 block">
-                  Meddelande
+                  {t("contact.field.message")}
                 </label>
                 <textarea
                   required
@@ -120,7 +121,7 @@ const ContactSection = () => {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="w-full bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground px-4 py-3 text-sm placeholder:text-primary-foreground/30 focus:outline-none focus:border-primary-foreground/50 transition-colors resize-none"
-                  placeholder="Berätta om ditt projekt..."
+                  placeholder={t("contact.placeholder.message")}
                 />
               </div>
               <button
@@ -128,13 +129,13 @@ const ContactSection = () => {
                 disabled={status === "sending"}
                 className="w-full bg-primary-foreground text-primary py-4 text-sm font-semibold tracking-wide hover:bg-primary-foreground/90 transition-colors disabled:opacity-50"
               >
-                {status === "sending" ? "Skickar..." : "Skicka meddelande"}
+                {status === "sending" ? t("contact.sending") : t("contact.submit")}
               </button>
               {status === "sent" && (
-                <p className="text-sm text-green-400 text-center">Tack! Ditt meddelande har skickats.</p>
+                <p className="text-sm text-green-400 text-center">{t("contact.success")}</p>
               )}
               {status === "error" && (
-                <p className="text-sm text-red-400 text-center">Något gick fel. Försök igen.</p>
+                <p className="text-sm text-red-400 text-center">{t("contact.error")}</p>
               )}
             </form>
           </motion.div>
