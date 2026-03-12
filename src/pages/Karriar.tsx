@@ -168,7 +168,6 @@ const Karriar = () => {
                 {[
                   "Inga öppna tjänster? Skicka ändå in!",
                   "Vi svarar inom 5 arbetsdagar",
-                  "Din ansökan behandlas konfidentiellt",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-primary-foreground/80">
                     <CheckCircle size={16} strokeWidth={1.5} className="mt-0.5 shrink-0 text-primary-foreground/50" />
