@@ -46,23 +46,43 @@ const Karriar = () => {
     }
   };
 
+  const uploadCvToUploadcare = async (file: File): Promise<string> => {
+    const ucData = new FormData();
+    ucData.append("UPLOADCARE_PUB_KEY", "6de4e138bb369eb3c78d");
+    ucData.append("UPLOADCARE_STORE", "1");
+    ucData.append("file", file);
+
+    const res = await fetch("https://upload.uploadcare.com/base/", {
+      method: "POST",
+      body: ucData,
+    });
+    if (!res.ok) throw new Error("CV-uppladdning misslyckades");
+    const json = await res.json();
+    return `https://ucarecdn.com/${json.file}/`;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
 
-    const data = new FormData();
-    data.append("name", form.name);
-    data.append("email", form.email);
-    if (form.phone) data.append("phone", form.phone);
-    data.append("message", form.message || "Intresseanmälan – se bifogat CV.");
-    if (cv) data.append("cv", cv);
-
     try {
-      const res = await fetch("https://formspree.io/f/xkovpqyp", {
+      let cvUrl = "";
+      if (cv) {
+        cvUrl = await uploadCvToUploadcare(cv);
+      }
+
+      const res = await fetch("https://formspree.io/f/maqpjwey", {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          ...(form.phone && { phone: form.phone }),
+          message: form.message || "Intresseanmälan – se bifogat CV.",
+          ...(cvUrl && { cv_länk: cvUrl }),
+        }),
       });
+
       if (res.ok) {
         setStatus("sent");
         setForm({ name: "", email: "", phone: "", message: "" });
