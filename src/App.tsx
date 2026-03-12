@@ -8,6 +8,7 @@ import Tjanster from "./pages/Tjanster";
 import Referensprojekt from "./pages/Referensprojekt";
 import OmBolaget from "./pages/OmBolaget";
 import Kontakt from "./pages/Kontakt";
+import Karriar from "./pages/Karriar";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/referensprojekt" element={<Referensprojekt />} />
           <Route path="/om-bolaget" element={<OmBolaget />} />
           <Route path="/kontakt" element={<Kontakt />} />
+          <Route path="/karriar" element={<Karriar />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Tjänster", href: "/tjanster" },
   { label: "Referensprojekt", href: "/referensprojekt" },
   { label: "Om bolaget", href: "/om-bolaget" },
+  { label: "Karriär", href: "/karriar" },
   { label: "Kontakt", href: "/kontakt" },
 ];
 
