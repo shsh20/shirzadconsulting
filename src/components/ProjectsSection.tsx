@@ -1,23 +1,40 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { MapPin, Calendar, Briefcase } from "lucide-react";
+import { useRef } from "react";
 
 interface Project {
   title: string;
-  year: string;
-  role: string;
-  type: string;
-  country: string;
+  location: string;
+  discipline: string;
+  description: string;
+  image: string;
+  imageAlt: string;
 }
 
-const projects: Project[] = [];
+const projects: Project[] = [
+  {
+    title: "Norslunda",
+    location: "Norslunda",
+    discipline: "Betongkonstruktion",
+    description:
+      "Projektering av socklar och betongbjälklag för kontor och industrilokal. Uppdraget omfattade dimensionering av grundkonstruktion samt bjälklag anpassade efter verksamhetens laster.",
+    image: "/projekt/norslunda.jpg",
+    imageAlt:
+      "3D-modell av kontors- och industribyggnad i Norslunda med mörk fasad",
+  },
+  {
+    title: "Granngården",
+    location: "Granngården",
+    discipline: "Stålkonstruktion",
+    description:
+      "Projektering av stålstomme till affärslokal. Uppdraget omfattade dimensionering av pelare, balkar och stabiliserande system för lokalens stomme.",
+    image: "/projekt/granngarden.jpg",
+    imageAlt: "3D-modell av stålstomme med pelare, balkar och fackverk",
+  },
+];
 
 const ProjectsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [showAll, setShowAll] = useState(false);
-
-  const visible = showAll ? projects : projects.slice(0, 9);
 
   return (
     <section className="section-padding bg-background" ref={ref}>
@@ -26,62 +43,58 @@ const ProjectsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="mb-16"
+          className="mb-16 max-w-2xl"
         >
           <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
             Referensprojekt
           </p>
-          <h2 className="heading-lg text-foreground mb-3">
-            Ett urval av projekt
-          </h2>
+          <h1 className="heading-lg text-foreground mb-3">
+            Ett urval av våra projekt
+          </h1>
           <p className="body-lg text-muted-foreground">
-            Projekt vi har lett eller samordnat genom åren.
+            Vi projekterar bärande konstruktioner i stål och betong – från
+            grundläggning till färdig stomme. Här är några uppdrag vi har
+            ansvarat för.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {visible.map((p, i) => (
-            <motion.div
+        <div className="space-y-20">
+          {projects.map((p, i) => (
+            <motion.article
               key={p.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.04 }}
-              className="border border-border bg-card p-6 hover:border-navy/30 transition-colors group"
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+              className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center"
             >
-              <h3 className="font-serif text-lg text-foreground mb-3 group-hover:text-navy transition-colors">
-                {p.title}
-              </h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Calendar size={14} className="text-steel" />
-                  <span>{p.year}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Briefcase size={14} className="text-steel" />
-                  <span>{p.role}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin size={14} className="text-steel" />
-                  <span>{p.country}</span>
-                </div>
+              <div
+                className={`overflow-hidden border border-border bg-muted ${
+                  i % 2 === 1 ? "lg:order-2" : ""
+                }`}
+              >
+                <img
+                  src={p.image}
+                  alt={p.imageAlt}
+                  loading="lazy"
+                  className="w-full h-full object-cover aspect-[4/3] transition-transform duration-700 hover:scale-[1.03]"
+                />
               </div>
-              <p className="mt-3 text-xs text-steel font-medium uppercase tracking-wide">
-                {p.type}
-              </p>
-            </motion.div>
+
+              <div className={i % 2 === 1 ? "lg:order-1" : ""}>
+                <p className="text-xs font-medium tracking-widest uppercase text-steel mb-3">
+                  {p.discipline}
+                </p>
+                <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-4">
+                  {p.title}
+                </h2>
+                <div className="w-12 h-px bg-navy/40 mb-5" />
+                <p className="text-muted-foreground leading-relaxed">
+                  {p.description}
+                </p>
+              </div>
+            </motion.article>
           ))}
         </div>
-
-        {projects.length > 9 && (
-          <div className="mt-12 text-center">
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="text-sm font-medium text-navy hover:text-navy-light transition-colors underline underline-offset-4"
-            >
-              {showAll ? "Visa färre" : `Visa alla ${projects.length} projekt`}
-            </button>
-          </div>
-        )}
       </div>
     </section>
   );
