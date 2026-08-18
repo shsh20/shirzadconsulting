@@ -17,7 +17,7 @@ const projects: Project[] = [
     discipline: "Betongkonstruktion",
     description:
       "Projektering av socklar och betongbjälklag för kontor och industrilokal. Uppdraget omfattade dimensionering av grundkonstruktion samt bjälklag anpassade efter verksamhetens laster.",
-    image: "/projekt/norslunda.jpg",
+    image: "/projekt/norslunda.JPG",
     imageAlt:
       "3D-modell av kontors- och industribyggnad i Norslunda med mörk fasad",
   },
