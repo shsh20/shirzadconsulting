@@ -32,6 +32,7 @@ export default {
         "navy-light": "hsl(var(--navy-light))",
         steel: "hsl(var(--steel))",
         "slate-light": "hsl(var(--slate-light))",
+        "project-tint": "hsl(var(--project-tint))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
