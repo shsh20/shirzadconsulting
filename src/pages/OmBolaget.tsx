@@ -7,7 +7,7 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } fro
 
 const strengths = [
   "Projektledning inom bygg och industri",
-  "Prefabricerade system (stål, betong, bjälklag)",
+  "Prefabricerade system (stål & betong)",
   "Tekniska lösningar och projekteringsledning",
   "Tidsplanering, budget, risk och kommunikation",
   "Ledarskap och tvärdisciplinär samordning",
