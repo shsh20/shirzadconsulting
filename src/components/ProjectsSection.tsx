@@ -58,17 +58,21 @@ const ProjectsSection = () => {
           </p>
         </motion.div>
 
-        <div className="space-y-20">
+        <div className="space-y-10">
           {projects.map((p, i) => (
             <motion.article
               key={p.title}
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center"
+              className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center p-6 md:p-10 border ${
+                i % 2 === 1
+                  ? "bg-project-tint border-navy/10"
+                  : "bg-card border-border"
+              }`}
             >
               <div
-                className={`overflow-hidden border border-border bg-muted ${
+                className={`flex items-center justify-center bg-background border border-border p-4 ${
                   i % 2 === 1 ? "lg:order-2" : ""
                 }`}
               >
@@ -76,7 +80,7 @@ const ProjectsSection = () => {
                   src={p.image}
                   alt={p.imageAlt}
                   loading="lazy"
-                  className="w-full h-full object-cover aspect-[4/3] transition-transform duration-700 hover:scale-[1.03]"
+                  className="w-full h-auto max-h-[320px] object-contain"
                 />
               </div>
 
@@ -95,6 +99,7 @@ const ProjectsSection = () => {
             </motion.article>
           ))}
         </div>
+
       </div>
     </section>
   );
