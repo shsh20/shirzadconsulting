@@ -40,6 +40,7 @@
     --navy-light: 220 35% 25%;
     --steel: 215 14% 45%;
     --slate-light: 215 15% 96%;
+    --project-tint: 210 45% 95%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -75,6 +76,7 @@
     --navy-light: 220 35% 75%;
     --steel: 215 14% 65%;
     --slate-light: 220 30% 12%;
+    --project-tint: 215 35% 14%;
   }
 }
 
