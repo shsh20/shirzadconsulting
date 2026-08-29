@@ -1,13 +1,11 @@
 import {
-  ClipboardList,
-  HardHat,
-  Ruler,
-  Box,
-  TrendingUp,
-  Users,
-  Truck,
-  Wrench,
-  MonitorSmartphone,
+  Network,
+  Building2,
+  DraftingCompass,
+  Boxes,
+  Container,
+  Cog,
+  Code2,
   type LucideIcon,
 } from "lucide-react";
 
@@ -22,6 +20,7 @@ export type Service = {
   title: string;
   desc: string;
   intro: string;
+  image: string;
   sections: ServiceSection[];
   outcomes: string[];
 };
@@ -29,11 +28,12 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "projektledning",
-    icon: ClipboardList,
+    icon: Network,
     title: "Projektledning",
     desc: "Ledning av bygg- och industriprojekt från start till leverans.",
     intro:
       "Vi tar ett helhetsansvar för projektets genomförande – från tidiga skeden och upphandling till produktion, driftsättning och överlämning. Fokus ligger på tydlig styrning, förutsägbara leveranser och trygga beslutsunderlag för beställaren.",
+    image: "/tjanster/projektledning.jpg",
     sections: [
       {
         heading: "Vad vi gör",
@@ -61,11 +61,12 @@ export const services: Service[] = [
   },
   {
     slug: "byggkonsultation",
-    icon: HardHat,
+    icon: Building2,
     title: "Byggkonsultation",
     desc: "Rådgivning och kvalitetssäkring genom hela byggprocessen.",
     intro:
       "Oberoende rådgivning som stärker beslutsunderlaget i varje skede. Vi granskar, kvalitetssäkrar och föreslår lösningar som är byggbara, kostnadseffektiva och tekniskt hållbara.",
+    image: "/tjanster/byggkonsultation.jpg",
     sections: [
       {
         heading: "Vad vi gör",
@@ -85,11 +86,12 @@ export const services: Service[] = [
   },
   {
     slug: "projekteringsledning",
-    icon: Ruler,
+    icon: DraftingCompass,
     title: "Projekteringsledning & teknisk koordinering",
     desc: "Samordning av projekteringsprocesser och tekniska lösningar.",
     intro:
       "Vi leder projekteringen och håller ihop de tekniska disciplinerna så att handlingarna blir kompletta, samordnade och möjliga att bygga efter.",
+    image: "/tjanster/projekteringsledning.jpg",
     sections: [
       {
         heading: "Vad vi gör",
@@ -109,11 +111,12 @@ export const services: Service[] = [
   },
   {
     slug: "stal-prefab-3d",
-    icon: Box,
+    icon: Boxes,
     title: "Stålstommar, prefab-betong & 3D-modellering",
     desc: "Specialistkompetens inom prefabricerade konstruktionssystem.",
     intro:
       "Specialistkompetens inom stål- och betongstommar, från konceptval och dimensionering till tillverkningsunderlag och montageplanering – med 3D-modellen som gemensam grund.",
+    image: "/tjanster/stal-prefab.jpg",
     sections: [
       {
         heading: "Vad vi gör",
@@ -132,60 +135,13 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "kostnad-tid-risk",
-    icon: TrendingUp,
-    title: "Kostnadsstyrning, tidplan & riskhantering",
-    desc: "Proaktiv styrning av budget, tid och projektrisker.",
-    intro:
-      "Ekonomi, tid och risk hanteras som en helhet. Vi bygger strukturen som gör att avvikelser upptäcks tidigt – när de fortfarande går att åtgärda.",
-    sections: [
-      {
-        heading: "Vad vi gör",
-        items: [
-          "Budget, kalkyl och prognos",
-          "Tidplanering, milstolpar och kritisk linje",
-          "Riskanalys med åtgärdsplan och ägarskap",
-          "Ändrings- och ÄTA-hantering",
-        ],
-      },
-    ],
-    outcomes: [
-      "Tidiga varningssignaler istället för sena överraskningar",
-      "Beslut baserade på aktuella siffror",
-      "Spårbar hantering av ändringar",
-    ],
-  },
-  {
-    slug: "stod-bestallare-entreprenorer",
-    icon: Users,
-    title: "Stöd till beställare & entreprenörer",
-    desc: "Oberoende rådgivning och samordning mellan alla parter.",
-    intro:
-      "Vi går in som förstärkning där behovet är som störst – som beställarstöd, teknisk resurs eller samordnande part mellan projektets aktörer.",
-    sections: [
-      {
-        heading: "Vad vi gör",
-        items: [
-          "Beställarstöd och representation i projektet",
-          "Förstärkning av projektorganisationen vid toppar",
-          "Samordning mellan beställare, entreprenör och konsulter",
-          "Uppföljning av avtal, leveranser och kvalitet",
-        ],
-      },
-    ],
-    outcomes: [
-      "Snabb påfyllning av rätt kompetens",
-      "Jämnare kommunikation mellan parterna",
-      "Bibehållet tempo även i pressade skeden",
-    ],
-  },
-  {
     slug: "supply-chain-inkop",
-    icon: Truck,
+    icon: Container,
     title: "Supply Chain & Inköp",
     desc: "Strategiskt och operativt inköp, leverantörsstyrning, materialplanering och logistik.",
     intro:
       "Vi tar ansvar för hela inköps- och försörjningskedjan i projekt – från förfrågan och utvärdering till order, leveransuppföljning och dokumentation. Erfarenhet från rollen som Project Supply Chain Manager med fullt inköpsansvar i projektmiljö.",
+    image: "/tjanster/supply-chain.jpg",
     sections: [
       {
         heading: "Inköpsprocessen",
@@ -230,11 +186,12 @@ export const services: Service[] = [
   },
   {
     slug: "engineering",
-    icon: Wrench,
-    title: "Engineering (Project Engineering)",
+    icon: Cog,
+    title: "Engineering",
     desc: "Kravhantering, teknisk koordinering, testning och dokumentation genom projektets alla faser.",
     intro:
-      "Rollen som Project Engineer binder ihop teknik, kvalitet och leverans. Vi säkerställer att kraven är tydliga, att lösningarna verifieras och att allt är dokumenterat och godkänt vid överlämning.",
+      "Vi binder ihop teknik, kvalitet och leverans. Vi säkerställer att kraven är tydliga, att lösningarna verifieras och att allt är dokumenterat och godkänt vid överlämning.",
+    image: "/tjanster/engineering.jpg",
     sections: [
       {
         heading: "Testning & verifiering",
@@ -278,11 +235,12 @@ export const services: Service[] = [
   },
   {
     slug: "it-digitalisering",
-    icon: MonitorSmartphone,
+    icon: Code2,
     title: "IT & Digitalisering",
     desc: "Systemutveckling, integrationer och digitala lösningar som effektiviserar verksamheten.",
     intro:
       "Vi utvecklar och moderniserar digitala lösningar – från webbsystem och affärssystem till integrationer och molnbaserad drift. Fokus på lösningar som förenklar arbetsflöden och skapar mätbart värde.",
+    image: "/tjanster/it-digitalisering.jpg",
     sections: [
       {
         heading: "Backend",
