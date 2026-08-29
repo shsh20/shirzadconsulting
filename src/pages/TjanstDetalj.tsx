@@ -50,16 +50,36 @@ const TjanstDetalj = () => {
 
         {/* Hero */}
         <section className="section-padding bg-slate-light">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="container-narrow max-w-3xl"
-          >
-            <Icon className="w-10 h-10 text-navy mb-6" strokeWidth={1.5} />
-            <h1 className="heading-xl text-foreground mb-6">{service.title}</h1>
-            <p className="body-lg text-muted-foreground">{service.intro}</p>
-          </motion.div>
+          <div className="container-narrow grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="flex h-14 w-14 items-center justify-center bg-navy text-background mb-6">
+                <Icon className="w-7 h-7" strokeWidth={1.5} />
+              </div>
+              <h1 className="heading-xl text-foreground mb-6">
+                {service.title}
+              </h1>
+              <p className="body-lg text-muted-foreground">{service.intro}</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="relative"
+            >
+              <div className="absolute -top-4 -left-4 h-full w-full bg-project-tint border border-navy/20" />
+              <img
+                src={service.image}
+                alt={service.title}
+                width={1024}
+                height={768}
+                className="relative w-full aspect-[4/3] object-cover shadow-lg"
+              />
+            </motion.div>
+          </div>
         </section>
 
         {/* Content */}
@@ -142,22 +162,38 @@ const TjanstDetalj = () => {
                 <Link
                   key={s.slug}
                   to={`/tjanster/${s.slug}`}
-                  className="group flex h-full flex-col bg-card p-8 border border-border hover:shadow-lg hover:border-navy/30 transition-all duration-300"
+                  className="group flex h-full flex-col bg-card border border-border overflow-hidden hover:shadow-lg hover:border-navy/30 transition-all duration-300"
                 >
-                  <s.icon className="w-7 h-7 text-navy mb-5" strokeWidth={1.5} />
-                  <h3 className="font-serif text-lg text-foreground mb-3">
-                    {s.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                    {s.desc}
-                  </p>
-                  <span className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-navy">
-                    Läs mer
-                    <ArrowRight
-                      size={16}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
+                  <div className="relative aspect-[4/3] overflow-hidden bg-project-tint">
+                    <img
+                      src={s.image}
+                      alt={s.title}
+                      loading="lazy"
+                      width={1024}
+                      height={768}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                  </span>
+                    <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center bg-navy text-background shadow-md">
+                      <s.icon className="w-5 h-5" strokeWidth={1.5} />
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col p-8">
+                    <h3 className="font-serif text-lg text-foreground mb-3">
+                      {s.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                      {s.desc}
+                    </p>
+                    <span className="mt-auto">
+                      <span className="inline-flex items-center gap-2 bg-navy text-background px-5 py-2.5 text-sm font-medium transition-opacity group-hover:opacity-90">
+                        Läs mer
+                        <ArrowRight
+                          size={16}
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                        />
+                      </span>
+                    </span>
+                  </div>
                 </Link>
               ))}
             </div>
