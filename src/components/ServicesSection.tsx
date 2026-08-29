@@ -1,22 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import {
-  ClipboardList,
-  HardHat,
-  Ruler,
-  Box,
-  TrendingUp,
-  Users,
-} from "lucide-react";
-
-const services = [
-  { icon: ClipboardList, title: "Projektledning", desc: "Ledning av bygg- och industriprojekt från start till leverans." },
-  { icon: HardHat, title: "Byggkonsultation", desc: "Rådgivning och kvalitetssäkring genom hela byggprocessen." },
-  { icon: Ruler, title: "Projekteringsledning & teknisk koordinering", desc: "Samordning av projekteringsprocesser och tekniska lösningar." },
-  { icon: Box, title: "Stålstommar, prefab-betong & 3D-modellering", desc: "Specialistkompetens inom prefabricerade konstruktionssystem." },
-  { icon: TrendingUp, title: "Kostnadsstyrning, tidplan & riskhantering", desc: "Proaktiv styrning av budget, tid och projektrisker." },
-  { icon: Users, title: "Stöd till beställare & entreprenörer", desc: "Oberoende rådgivning och samordning mellan alla parter." },
-];
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { services } from "@/data/services";
 
 const ServicesSection = () => {
   const ref = useRef(null);
@@ -29,28 +15,46 @@ const ServicesSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="mb-16"
+          className="mb-16 max-w-2xl"
         >
           <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
             Tjänster
           </p>
-          <h2 className="heading-lg text-foreground">
-            Vad vi erbjuder
-          </h2>
+          <h2 className="heading-lg text-foreground mb-6">Vad vi erbjuder</h2>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            Vi kombinerar teknisk specialistkompetens med projektledning, inköp
+            och digitalisering – och tar ansvar hela vägen från tidiga skeden
+            till färdig leverans.
+          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((s, i) => (
             <motion.div
-              key={s.title}
+              key={s.slug}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="bg-card p-8 border border-border hover:shadow-lg transition-shadow duration-300"
+              transition={{ duration: 0.5, delay: i * 0.06 }}
             >
-              <s.icon className="w-8 h-8 text-navy mb-5" strokeWidth={1.5} />
-              <h3 className="font-serif text-lg text-foreground mb-3">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <Link
+                to={`/tjanster/${s.slug}`}
+                className="group flex h-full flex-col bg-card p-8 border border-border hover:shadow-lg hover:border-navy/30 transition-all duration-300"
+              >
+                <s.icon className="w-8 h-8 text-navy mb-5" strokeWidth={1.5} />
+                <h3 className="font-serif text-lg text-foreground mb-3">
+                  {s.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                  {s.desc}
+                </p>
+                <span className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-navy">
+                  Läs mer
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </span>
+              </Link>
             </motion.div>
           ))}
         </div>
