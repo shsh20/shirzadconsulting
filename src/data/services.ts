@@ -32,14 +32,13 @@ export const services: Service[] = [
     title: "Projektledning",
     desc: "Ledning av bygg- och industriprojekt från start till leverans.",
     intro:
-      "Vi tar ett helhetsansvar för projektets genomförande – från tidiga skeden och upphandling till produktion, driftsättning och överlämning. Fokus ligger på tydlig styrning, förutsägbara leveranser och trygga beslutsunderlag för beställaren.",
+      "Vi förstärker kundens organisation med kompetens inom projektledning och projektsamordning. Genom strukturerad planering, uppföljning och koordinering bidrar vi till att projektet genomförs effektivt och enligt uppsatta mål.",
     image: "/tjanster/projektledning.jpg",
     sections: [
       {
         heading: "Vad vi gör",
         items: [
-          "Projektstyrning i tidiga skeden, produktion och slutskede",
-          "Upphandling och avtalsuppföljning",
+          "Rådgivning i tidiga skeden",
           "Mötesstruktur, rapportering och beslutsunderlag",
           "Samordning mellan beställare, konsulter och entreprenörer",
         ],
@@ -65,23 +64,22 @@ export const services: Service[] = [
     title: "Byggkonsultation",
     desc: "Rådgivning och kvalitetssäkring genom hela byggprocessen.",
     intro:
-      "Oberoende rådgivning som stärker beslutsunderlaget i varje skede. Vi granskar, kvalitetssäkrar och föreslår lösningar som är byggbara, kostnadseffektiva och tekniskt hållbara.",
+      "Oberoende rådgivning av materialval och hållbara lösningar. Vi granskar, kvalitetssäkrar och föreslår lösningar som är byggbara, kostnadseffektiva och tekniskt hållbara.",
     image: "/tjanster/byggkonsultation.jpg",
     sections: [
       {
         heading: "Vad vi gör",
         items: [
           "Teknisk granskning av handlingar och lösningsförslag",
-          "Byggbarhetsanalys och second opinion",
-          "Kvalitetssäkring under produktion",
-          "Stöd vid besiktning, avvikelser och slutdokumentation",
+          "Kvalitetssäkring inför produktion",
+          "Kompetenta lösningar när avvikande uppkommer",
         ],
       },
     ],
     outcomes: [
-      "Färre fel och ändringar i produktion",
-      "Bättre underlag inför investeringsbeslut",
-      "Kvalitet som går att verifiera",
+      "Tydliga underlag inför produktion",
+      "Lätta och hållbara lösningar",
+      "Kvalitet och dokumentation",
     ],
   },
   {
@@ -115,16 +113,16 @@ export const services: Service[] = [
     title: "Stålstommar, prefab-betong & 3D-modellering",
     desc: "Specialistkompetens inom prefabricerade konstruktionssystem.",
     intro:
-      "Specialistkompetens inom stål- och betongstommar, från konceptval och dimensionering till tillverkningsunderlag och montageplanering – med 3D-modellen som gemensam grund.",
+      "Specialistkompetens inom stål- och betongstommar, från konceptval och dimensionering till tillverkningsunderlag och montagehandlingar – med 3D-modellen som gemensam grund.",
     image: "/tjanster/stal-prefab.jpg",
     sections: [
       {
         heading: "Vad vi gör",
         items: [
           "Stomval, dimensionering och stabiliserande system",
-          "Prefab-betong: socklar, bjälklag, element och infästningar",
-          "3D-modellering och underlag för tillverkning",
-          "Montageplanering och leveranssekvenser",
+          "Prefab-betong & stål",
+          "3D-modellering och tillverkningshandlingar",
+          "Montagehandlingar och anvisningar",
         ],
       },
     ],
@@ -140,7 +138,7 @@ export const services: Service[] = [
     title: "Supply Chain & Inköp",
     desc: "Strategiskt och operativt inköp, leverantörsstyrning, materialplanering och logistik.",
     intro:
-      "Vi tar ansvar för hela inköps- och försörjningskedjan i projekt – från förfrågan och utvärdering till order, leveransuppföljning och dokumentation. Erfarenhet från rollen som Project Supply Chain Manager med fullt inköpsansvar i projektmiljö.",
+      "Vi tillhandahåller kunskap inom inköps- och försörjningskedjan i projekt – från förfrågan och utvärdering till order, leveransuppföljning och dokumentation. Erfarenhet från rollen som Project Supply Chain Manager med inköpsansvar i projektmiljö.",
     image: "/tjanster/supply-chain.jpg",
     sections: [
       {
