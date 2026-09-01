@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ChevronRight, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getService, services } from "@/data/services";
+import { categories } from "@/data/categories";
 
 const TjanstDetalj = () => {
   const { slug } = useParams();
@@ -13,6 +14,9 @@ const TjanstDetalj = () => {
 
   const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
   const Icon = service.icon;
+  const category = categories.find((c) =>
+    c.serviceSlugs.includes(service.slug)
+  );
 
   return (
     <div className="min-h-screen">
@@ -40,6 +44,19 @@ const TjanstDetalj = () => {
                   Tjänster
                 </Link>
               </li>
+              {category && (
+                <>
+                  <ChevronRight size={14} className="opacity-60" />
+                  <li>
+                    <Link
+                      to={`/tjanster/omrade/${category.slug}`}
+                      className="hover:text-foreground transition-colors"
+                    >
+                      {category.title}
+                    </Link>
+                  </li>
+                </>
+              )}
               <ChevronRight size={14} className="opacity-60" />
               <li className="text-foreground" aria-current="page">
                 {service.title}
