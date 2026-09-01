@@ -7,6 +7,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Tjanster from "./pages/Tjanster";
 import TjanstDetalj from "./pages/TjanstDetalj";
+import TjanstKategori from "./pages/TjanstKategori";
 import Referensprojekt from "./pages/Referensprojekt";
 import OmBolaget from "./pages/OmBolaget";
 import Kontakt from "./pages/Kontakt";
@@ -26,6 +27,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tjanster" element={<Tjanster />} />
+          <Route path="/tjanster/omrade/:slug" element={<TjanstKategori />} />
           <Route path="/tjanster/:slug" element={<TjanstDetalj />} />
 
           <Route path="/referensprojekt" element={<Referensprojekt />} />
