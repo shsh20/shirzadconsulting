@@ -30,7 +30,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container-narrow flex items-center justify-between px-6 md:px-12 lg:px-24 py-5">
-        <Link to="/" className="font-serif text-xl tracking-tight text-foreground">
+        <Link to="/" className="font-serif text-xl tracking-tight text-foreground md:mr-10 lg:mr-16">
           Shirzad Consulting Group
         </Link>
 
