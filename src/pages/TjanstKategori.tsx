@@ -68,16 +68,18 @@ const TjanstKategori = () => {
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="relative"
+              className="relative flex justify-center lg:justify-end"
             >
-              <div className="absolute -top-4 -left-4 h-full w-full bg-project-tint border border-navy/20" />
-              <img
-                src={category.image}
-                alt={category.title}
-                width={1024}
-                height={768}
-                className="relative w-full aspect-[4/3] object-cover shadow-lg"
-              />
+              <div className="relative max-w-md w-full">
+                <div className="absolute -top-3 -left-3 h-full w-full bg-project-tint border border-navy/20" />
+                <img
+                  src={category.image}
+                  alt={category.title}
+                  width={800}
+                  height={600}
+                  className="relative w-full aspect-[4/3] object-cover shadow-lg"
+                />
+              </div>
             </motion.div>
           </div>
         </section>
