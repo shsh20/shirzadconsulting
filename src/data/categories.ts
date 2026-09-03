@@ -4,7 +4,8 @@ import {
   MonitorSmartphone,
   type LucideIcon,
 } from "lucide-react";
-import { services, type Service } from "./services";
+import { getServices, type Service } from "./services";
+import type { Lang } from "@/i18n/translations";
 
 export type ServiceCategory = {
   slug: string;
@@ -57,7 +58,12 @@ export const categories: ServiceCategory[] = [
 export const getCategory = (slug?: string) =>
   categories.find((c) => c.slug === slug);
 
-export const getCategoryServices = (category: ServiceCategory): Service[] =>
-  category.serviceSlugs
+export const getCategoryServices = (
+  category: ServiceCategory,
+  lang: Lang = "sv"
+): Service[] => {
+  const services = getServices(lang);
+  return category.serviceSlugs
     .map((slug) => services.find((s) => s.slug === slug))
     .filter((s): s is Service => Boolean(s));
+};
