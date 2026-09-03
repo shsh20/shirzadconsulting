@@ -27,6 +27,7 @@ const sv: Dict = {
   "services.lead":
     "Vi kombinerar teknisk specialistkompetens med projektledning, inköp och digitalisering – och tar ansvar hela vägen från tidiga skeden till färdig leverans.",
   "services.readMore": "Läs mer",
+  "services.explore": "Utforska området",
 
   // Breadcrumbs
   "breadcrumb.label": "Brödsmulor",
@@ -173,6 +174,7 @@ const en: Dict = {
   "services.lead":
     "We combine deep technical expertise with project management, procurement and digitalisation – taking responsibility all the way from early stages to final delivery.",
   "services.readMore": "Read more",
+  "services.explore": "Explore the area",
 
   "breadcrumb.label": "Breadcrumbs",
   "breadcrumb.home": "Home",
