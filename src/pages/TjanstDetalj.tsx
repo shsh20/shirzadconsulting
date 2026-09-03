@@ -3,12 +3,13 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ChevronRight, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getService, services } from "@/data/services";
+import { getService, getServices } from "@/data/services";
 import { categories } from "@/data/categories";
 
 const TjanstDetalj = () => {
   const { slug } = useParams();
-  const service = getService(slug);
+  const service = getService(slug, "sv");
+  const services = getServices("sv");
 
   if (!service) return <Navigate to="/tjanster" replace />;
 
