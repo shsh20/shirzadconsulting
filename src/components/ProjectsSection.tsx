@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface Project {
   title: string;
@@ -10,31 +11,29 @@ interface Project {
   imageAlt: string;
 }
 
-const projects: Project[] = [
-  {
-    title: "Norslunda",
-    location: "Norslunda",
-    discipline: "Betongkonstruktion",
-    description:
-      "Projektering av socklar och betongbjälklag för kontor och industrilokal. Uppdraget omfattade dimensionering av grundkonstruktion samt bjälklag anpassade efter verksamhetens laster.",
-    image: "/projekt/norslunda.JPG",
-    imageAlt:
-      "3D-modell av kontors- och industribyggnad i Norslunda med mörk fasad",
-  },
-  {
-    title: "Granngården",
-    location: "Granngården",
-    discipline: "Stålkonstruktion",
-    description:
-      "Projektering av stålstomme till affärslokal. Uppdraget omfattade dimensionering av pelare, balkar och stabiliserande system för lokalens stomme.",
-    image: "/projekt/granngarden.jpg",
-    imageAlt: "3D-modell av stålstomme med pelare, balkar och fackverk",
-  },
-];
-
 const ProjectsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const { t } = useLanguage();
+
+  const projects: Project[] = [
+    {
+      title: "Norslunda",
+      location: "Norslunda",
+      discipline: t("projects.norslunda.discipline"),
+      description: t("projects.norslunda.description"),
+      image: "/projekt/norslunda.JPG",
+      imageAlt: t("projects.norslunda.alt"),
+    },
+    {
+      title: "Granngården",
+      location: "Granngården",
+      discipline: t("projects.granngarden.discipline"),
+      description: t("projects.granngarden.description"),
+      image: "/projekt/granngarden.jpg",
+      imageAlt: t("projects.granngarden.alt"),
+    },
+  ];
 
   return (
     <section className="section-padding bg-background" ref={ref}>
@@ -46,15 +45,13 @@ const ProjectsSection = () => {
           className="mb-16 max-w-2xl"
         >
           <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
-            Referensprojekt
+            {t("projects.eyebrow")}
           </p>
           <h1 className="heading-lg text-foreground mb-3">
-            Ett urval av våra projekt
+            {t("projects.heading")}
           </h1>
           <p className="body-lg text-muted-foreground">
-            Vi projekterar bärande konstruktioner i stål och betong – från
-            grundläggning till färdig stomme. Här är några uppdrag vi har
-            ansvarat för.
+            {t("projects.lead")}
           </p>
         </motion.div>
 
