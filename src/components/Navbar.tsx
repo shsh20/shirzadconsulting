@@ -1,25 +1,56 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const navLinks = [
-  { label: "Tjänster", href: "/tjanster" },
-  { label: "Referensprojekt", href: "/referensprojekt" },
-  { label: "Om bolaget", href: "/om-bolaget" },
-  { label: "Karriär", href: "/karriar" },
-  { label: "Kontakt", href: "/kontakt" },
+const navItems = [
+  { key: "nav.services", href: "/tjanster" },
+  { key: "nav.projects", href: "/referensprojekt" },
+  { key: "nav.about", href: "/om-bolaget" },
+  { key: "nav.career", href: "/karriar" },
+  { key: "nav.contact", href: "/kontakt" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const langToggle = (
+    <div className="flex items-center gap-1.5" aria-label={t("nav.language")}>
+      <Globe size={15} strokeWidth={1.5} className="text-muted-foreground" />
+      <button
+        onClick={() => setLang("sv")}
+        aria-pressed={lang === "sv"}
+        className={`text-xs font-semibold tracking-wide transition-colors ${
+          lang === "sv"
+            ? "text-foreground"
+            : "text-muted-foreground/60 hover:text-foreground"
+        }`}
+      >
+        SV
+      </button>
+      <span className="text-muted-foreground/40 text-xs">|</span>
+      <button
+        onClick={() => setLang("en")}
+        aria-pressed={lang === "en"}
+        className={`text-xs font-semibold tracking-wide transition-colors ${
+          lang === "en"
+            ? "text-foreground"
+            : "text-muted-foreground/60 hover:text-foreground"
+        }`}
+      >
+        EN
+      </button>
+    </div>
+  );
 
   return (
     <nav
@@ -36,7 +67,7 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
+          {navItems.map((l) => (
             <Link
               key={l.href}
               to={l.href}
@@ -46,16 +77,17 @@ const Navbar = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              {l.label}
+              {t(l.key)}
             </Link>
           ))}
+          <div className="border-l border-border pl-6">{langToggle}</div>
         </div>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-foreground"
-          aria-label="Toggle menu"
+          aria-label={t("nav.toggleMenu")}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -64,7 +96,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-card border-b border-border px-6 pb-6 pt-2">
-          {navLinks.map((l) => (
+          {navItems.map((l) => (
             <Link
               key={l.href}
               to={l.href}
@@ -75,9 +107,10 @@ const Navbar = () => {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              {l.label}
+              {t(l.key)}
             </Link>
           ))}
+          <div className="pt-3 mt-2 border-t border-border">{langToggle}</div>
         </div>
       )}
     </nav>

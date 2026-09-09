@@ -3,28 +3,30 @@ import { motion, useInView } from "framer-motion";
 import { Upload, Briefcase, Users, TrendingUp, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-const values = [
-  {
-    icon: Briefcase,
-    title: "Expertis i världsklass",
-    desc: "Vi arbetar med komplexa projekt inom energi, infrastruktur och teknisk konsultation.",
-  },
-  {
-    icon: Users,
-    title: "Sammanhållna team",
-    desc: "Hos oss är du aldrig ensam. Vi värdesätter samarbete och kollegial tillväxt.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Karriärutveckling",
-    desc: "Vi investerar i dina kompetenser och ger dig möjlighet att växa med oss.",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Karriar = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
+
+  const values = [
+    {
+      icon: Briefcase,
+      title: t("career.value1.title"),
+      desc: t("career.value1.desc"),
+    },
+    {
+      icon: Users,
+      title: t("career.value2.title"),
+      desc: t("career.value2.desc"),
+    },
+    {
+      icon: TrendingUp,
+      title: t("career.value3.title"),
+      desc: t("career.value3.desc"),
+    },
+  ];
 
   const [form, setForm] = useState({
     name: "",
@@ -42,7 +44,7 @@ const Karriar = () => {
     if (allowed.includes(file.type) || file.name.match(/\.(pdf|doc|docx)$/i)) {
       setCv(file);
     } else {
-      alert("Endast PDF eller Word-filer (.pdf, .doc, .docx) är tillåtna.");
+      alert(t("career.fileError"));
     }
   };
 
@@ -56,7 +58,7 @@ const Karriar = () => {
       method: "POST",
       body: ucData,
     });
-    if (!res.ok) throw new Error("CV-uppladdning misslyckades");
+    if (!res.ok) throw new Error("CV upload failed");
     const json = await res.json();
     return `https://ucarecdn.com/${json.file}/`;
   };
@@ -78,7 +80,7 @@ const Karriar = () => {
           name: form.name,
           email: form.email,
           ...(form.phone && { phone: form.phone }),
-          message: form.message || "Intresseanmälan – se bifogat CV.",
+          message: form.message || t("career.defaultMessage"),
           ...(cvUrl && { cv_länk: cvUrl }),
         }),
       });
@@ -109,15 +111,13 @@ const Karriar = () => {
             className="max-w-2xl"
           >
             <p className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-4">
-              Karriär
+              {t("career.eyebrow")}
             </p>
             <h1 className="heading-lg text-foreground mb-6">
-              Bli en del av oss
+              {t("career.heading")}
             </h1>
             <p className="text-body text-muted-foreground leading-relaxed">
-              Vi söker alltid efter engagerade och kompetenta ingenjörer och konsulter
-              som vill bidra till meningsfulla projekt. Skicka in din intresseanmälan
-              — vi hör av oss när rätt möjlighet uppstår.
+              {t("career.lead")}
             </p>
           </motion.div>
         </div>
@@ -154,21 +154,16 @@ const Karriar = () => {
               transition={{ duration: 0.5 }}
             >
               <p className="text-sm font-medium tracking-widest uppercase text-primary-foreground/60 mb-4">
-                Intresseanmälan
+                {t("career.formEyebrow")}
               </p>
               <h2 className="heading-lg text-primary-foreground mb-6">
-                Skicka in din ansökan
+                {t("career.formHeading")}
               </h2>
               <p className="text-primary-foreground/70 text-sm leading-relaxed mb-8">
-                Vi tar emot spontanansökningar löpande. Berätta kort om dig själv
-                och bifoga ditt CV — vi återkommer när vi har ett uppdrag som
-                matchar din profil.
+                {t("career.formLead")}
               </p>
               <ul className="space-y-3">
-                {[
-                  "Inga öppna tjänster? Skicka ändå in!",
-                  "Vi svarar inom 5 arbetsdagar",
-                ].map((item) => (
+                {[t("career.bullet1"), t("career.bullet2")].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-primary-foreground/80">
                     <CheckCircle size={16} strokeWidth={1.5} className="mt-0.5 shrink-0 text-primary-foreground/50" />
                     {item}
@@ -186,8 +181,8 @@ const Karriar = () => {
                 <div className="flex flex-col items-center justify-center h-full gap-6 text-center py-16">
                   <CheckCircle size={48} strokeWidth={1} className="text-primary-foreground/80" />
                   <div>
-                    <p className="text-lg font-semibold text-primary-foreground mb-2">Tack för din ansökan!</p>
-                    <p className="text-sm text-primary-foreground/70">Vi har mottagit din intresseanmälan och återkommer så snart vi kan.</p>
+                    <p className="text-lg font-semibold text-primary-foreground mb-2">{t("career.thanksTitle")}</p>
+                    <p className="text-sm text-primary-foreground/70">{t("career.thanksDesc")}</p>
                   </div>
                 </div>
               ) : (
@@ -195,7 +190,7 @@ const Karriar = () => {
                   {/* Name */}
                   <div>
                     <label className="text-xs font-medium text-primary-foreground/60 uppercase tracking-wide mb-2 block">
-                      Namn *
+                      {t("career.name")}
                     </label>
                     <input
                       type="text"
@@ -203,14 +198,14 @@ const Karriar = () => {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       className="w-full bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground px-4 py-3 text-sm placeholder:text-primary-foreground/30 focus:outline-none focus:border-primary-foreground/50 transition-colors"
-                      placeholder="Ditt namn"
+                      placeholder={t("career.namePlaceholder")}
                     />
                   </div>
 
                   {/* Email */}
                   <div>
                     <label className="text-xs font-medium text-primary-foreground/60 uppercase tracking-wide mb-2 block">
-                      E-post *
+                      {t("career.email")}
                     </label>
                     <input
                       type="email"
@@ -218,14 +213,14 @@ const Karriar = () => {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       className="w-full bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground px-4 py-3 text-sm placeholder:text-primary-foreground/30 focus:outline-none focus:border-primary-foreground/50 transition-colors"
-                      placeholder="din@epost.se"
+                      placeholder={t("career.emailPlaceholder")}
                     />
                   </div>
 
                   {/* Phone */}
                   <div>
                     <label className="text-xs font-medium text-primary-foreground/60 uppercase tracking-wide mb-2 block">
-                      Telefon
+                      {t("career.phone")}
                     </label>
                     <input
                       type="tel"
@@ -239,21 +234,21 @@ const Karriar = () => {
                   {/* Message */}
                   <div>
                     <label className="text-xs font-medium text-primary-foreground/60 uppercase tracking-wide mb-2 block">
-                      Kort om dig
+                      {t("career.about")}
                     </label>
                     <textarea
                       rows={3}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       className="w-full bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground px-4 py-3 text-sm placeholder:text-primary-foreground/30 focus:outline-none focus:border-primary-foreground/50 transition-colors resize-none"
-                      placeholder="Berätta kort om din bakgrund och vad du söker..."
+                      placeholder={t("career.aboutPlaceholder")}
                     />
                   </div>
 
                   {/* CV upload */}
                   <div>
                     <label className="text-xs font-medium text-primary-foreground/60 uppercase tracking-wide mb-2 block">
-                      CV (PDF eller Word)
+                      {t("career.cv")}
                     </label>
                     <label
                       onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
@@ -277,7 +272,7 @@ const Karriar = () => {
                       {cv ? (
                         <span className="text-sm text-primary-foreground/80 font-medium">{cv.name}</span>
                       ) : (
-                        <span className="text-sm text-primary-foreground/50">Dra och släpp eller klicka för att välja fil</span>
+                        <span className="text-sm text-primary-foreground/50">{t("career.cvDrop")}</span>
                       )}
                     </label>
                   </div>
@@ -287,11 +282,11 @@ const Karriar = () => {
                     disabled={status === "sending"}
                     className="w-full bg-primary-foreground text-primary py-4 text-sm font-semibold tracking-wide hover:bg-primary-foreground/90 transition-colors disabled:opacity-50"
                   >
-                    {status === "sending" ? "Skickar..." : "Skicka intresseanmälan"}
+                    {status === "sending" ? t("career.sending") : t("career.submit")}
                   </button>
 
                   {status === "error" && (
-                    <p className="text-sm text-red-300 text-center">Något gick fel. Försök igen.</p>
+                    <p className="text-sm text-red-300 text-center">{t("career.error")}</p>
                   )}
                 </form>
               )}

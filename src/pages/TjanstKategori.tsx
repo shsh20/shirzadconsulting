@@ -4,14 +4,16 @@ import { ArrowLeft, ArrowRight, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getCategory, getCategoryServices } from "@/data/categories";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const TjanstKategori = () => {
   const { slug } = useParams();
-  const category = getCategory(slug);
+  const { lang, t } = useLanguage();
+  const category = getCategory(slug, lang);
 
   if (!category) return <Navigate to="/tjanster" replace />;
 
-  const categoryServices = getCategoryServices(category);
+  const categoryServices = getCategoryServices(category, lang);
   const Icon = category.icon;
 
   return (
@@ -22,13 +24,13 @@ const TjanstKategori = () => {
         {/* Breadcrumbs */}
         <div className="border-b border-border bg-background">
           <nav
-            aria-label="Brödsmulor"
+            aria-label={t("breadcrumb.label")}
             className="container-narrow px-6 md:px-12 lg:px-24 py-4"
           >
             <ol className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
               <li>
                 <Link to="/" className="hover:text-foreground transition-colors">
-                  Hem
+                  {t("breadcrumb.home")}
                 </Link>
               </li>
               <ChevronRight size={14} className="opacity-60" />
@@ -37,7 +39,7 @@ const TjanstKategori = () => {
                   to="/tjanster"
                   className="hover:text-foreground transition-colors"
                 >
-                  Tjänster
+                  {t("breadcrumb.services")}
                 </Link>
               </li>
               <ChevronRight size={14} className="opacity-60" />
@@ -95,10 +97,10 @@ const TjanstKategori = () => {
               className="mb-12 max-w-2xl"
             >
               <h2 className="heading-md text-foreground mb-4">
-                Tjänster inom området
+                {t("category.servicesHeading")}
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Utforska våra specialisttjänster inom {category.title.toLowerCase()}.
+                {t("category.servicesLead")} {category.title.toLowerCase()}.
               </p>
             </motion.div>
 
@@ -137,7 +139,7 @@ const TjanstKategori = () => {
                       </p>
                       <span className="mt-auto">
                         <span className="inline-flex items-center gap-2 bg-navy text-background px-5 py-2.5 text-sm font-medium transition-opacity group-hover:opacity-90">
-                          Läs mer
+                          {t("services.readMore")}
                           <ArrowRight
                             size={16}
                             className="transition-transform duration-300 group-hover:translate-x-1"
@@ -156,7 +158,7 @@ const TjanstKategori = () => {
                 className="inline-flex items-center gap-2 text-sm font-medium text-navy"
               >
                 <ArrowLeft size={16} />
-                Tillbaka till alla tjänsteområden
+                {t("category.back")}
               </Link>
             </div>
           </div>

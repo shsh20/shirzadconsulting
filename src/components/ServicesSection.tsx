@@ -2,11 +2,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { categories } from "@/data/categories";
+import { getCategories } from "@/data/categories";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const ServicesSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const { lang, t } = useLanguage();
+  const categories = getCategories(lang);
 
   return (
     <section className="section-padding bg-slate-light" ref={ref}>
@@ -18,13 +21,11 @@ const ServicesSection = () => {
           className="mb-16 max-w-2xl"
         >
           <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
-            Tjänster
+            {t("services.eyebrow")}
           </p>
-          <h2 className="heading-lg text-foreground mb-6">Vad vi erbjuder</h2>
+          <h2 className="heading-lg text-foreground mb-6">{t("services.heading")}</h2>
           <p className="text-base text-muted-foreground leading-relaxed">
-            Vi kombinerar teknisk specialistkompetens med projektledning, inköp
-            och digitalisering – och tar ansvar hela vägen från tidiga skeden
-            till färdig leverans.
+            {t("services.lead")}
           </p>
         </motion.div>
 
@@ -62,7 +63,7 @@ const ServicesSection = () => {
                   </p>
                   <span className="mt-auto">
                     <span className="inline-flex items-center gap-2 bg-navy text-background px-5 py-2.5 text-sm font-medium transition-opacity group-hover:opacity-90">
-                      Utforska området
+                      {t("services.explore")}
                       <ArrowRight
                         size={16}
                         className="transition-transform duration-300 group-hover:translate-x-1"
