@@ -4,18 +4,20 @@ import { ArrowLeft, ArrowRight, ChevronRight, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getService, getServices } from "@/data/services";
-import { categories } from "@/data/categories";
+import { getCategories } from "@/data/categories";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const TjanstDetalj = () => {
   const { slug } = useParams();
-  const service = getService(slug, "sv");
-  const services = getServices("sv");
+  const { lang, t } = useLanguage();
+  const service = getService(slug, lang);
+  const services = getServices(lang);
 
   if (!service) return <Navigate to="/tjanster" replace />;
 
   const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
   const Icon = service.icon;
-  const category = categories.find((c) =>
+  const category = getCategories(lang).find((c) =>
     c.serviceSlugs.includes(service.slug)
   );
 
@@ -27,13 +29,13 @@ const TjanstDetalj = () => {
         {/* Breadcrumbs */}
         <div className="border-b border-border bg-background">
           <nav
-            aria-label="Brödsmulor"
+            aria-label={t("breadcrumb.label")}
             className="container-narrow px-6 md:px-12 lg:px-24 py-4"
           >
             <ol className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
               <li>
                 <Link to="/" className="hover:text-foreground transition-colors">
-                  Hem
+                  {t("breadcrumb.home")}
                 </Link>
               </li>
               <ChevronRight size={14} className="opacity-60" />
@@ -42,7 +44,7 @@ const TjanstDetalj = () => {
                   to="/tjanster"
                   className="hover:text-foreground transition-colors"
                 >
-                  Tjänster
+                  {t("breadcrumb.services")}
                 </Link>
               </li>
               {category && (
@@ -133,7 +135,7 @@ const TjanstDetalj = () => {
             <aside className="lg:col-span-1">
               <div className="bg-project-tint border border-border p-8 lg:sticky lg:top-28">
                 <h2 className="font-serif text-xl text-foreground mb-5">
-                  Värdet för dig
+                  {t("service.valueHeading")}
                 </h2>
                 <ul className="space-y-4 mb-8">
                   {service.outcomes.map((o) => (
@@ -153,7 +155,7 @@ const TjanstDetalj = () => {
                   to="/kontakt"
                   className="inline-flex items-center gap-2 bg-navy text-background px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
                 >
-                  Kontakta oss
+                  {t("service.contactCta")}
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -165,13 +167,13 @@ const TjanstDetalj = () => {
         <section className="section-padding bg-slate-light">
           <div className="container-narrow">
             <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
-              <h2 className="heading-md text-foreground">Andra tjänster</h2>
+              <h2 className="heading-md text-foreground">{t("service.otherHeading")}</h2>
               <Link
                 to="/tjanster"
                 className="inline-flex items-center gap-2 text-sm font-medium text-navy"
               >
                 <ArrowLeft size={16} />
-                Tillbaka till alla tjänster
+                {t("service.backToAll")}
               </Link>
             </div>
 
@@ -204,7 +206,7 @@ const TjanstDetalj = () => {
                     </p>
                     <span className="mt-auto">
                       <span className="inline-flex items-center gap-2 bg-navy text-background px-5 py-2.5 text-sm font-medium transition-opacity group-hover:opacity-90">
-                        Läs mer
+                        {t("services.readMore")}
                         <ArrowRight
                           size={16}
                           className="transition-transform duration-300 group-hover:translate-x-1"
