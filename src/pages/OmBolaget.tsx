@@ -4,44 +4,46 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Building2, Target, Shield, Users } from "lucide-react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
-
-const strengths = [
-  "Projektledning inom bygg och industri",
-  "Prefabricerade system (stål & betong)",
-  "Tekniska lösningar och projekteringsledning",
-  "Tidsplanering, budget, risk och kommunikation",
-  "Ledarskap och tvärdisciplinär samordning",
-];
-
-const radarData = [
-  { subject: "Projektledning", value: 95 },
-  { subject: "Prefab-system", value: 90 },
-  { subject: "Tekniska lösningar", value: 88 },
-  { subject: "Tidsplanering", value: 92 },
-  { subject: "Ledarskap", value: 94 },
-];
-
-const values = [
-  {
-    icon: Target,
-    title: "Precision",
-    desc: "Varje projekt styrs med tydliga mål, strukturerade processer och kontroll genom hela kedjan.",
-  },
-  {
-    icon: Shield,
-    title: "Pålitlighet",
-    desc: "Vi levererar det vi lovar – i tid, inom budget och med hög kvalitet.",
-  },
-  {
-    icon: Users,
-    title: "Samverkan",
-    desc: "Vi tror på tvärdisciplinärt samarbete och öppen kommunikation mellan alla projektparter.",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const OmBolaget = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
+
+  const strengths = [
+    t("about.strength1"),
+    t("about.strength2"),
+    t("about.strength3"),
+    t("about.strength4"),
+    t("about.strength5"),
+  ];
+
+  const radarData = [
+    { subject: t("about.radar1"), value: 95 },
+    { subject: t("about.radar2"), value: 90 },
+    { subject: t("about.radar3"), value: 88 },
+    { subject: t("about.radar4"), value: 92 },
+    { subject: t("about.radar5"), value: 94 },
+  ];
+
+  const values = [
+    {
+      icon: Target,
+      title: t("about.value1.title"),
+      desc: t("about.value1.desc"),
+    },
+    {
+      icon: Shield,
+      title: t("about.value2.title"),
+      desc: t("about.value2.desc"),
+    },
+    {
+      icon: Users,
+      title: t("about.value3.title"),
+      desc: t("about.value3.desc"),
+    },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -57,26 +59,15 @@ const OmBolaget = () => {
                 transition={{ duration: 0.6 }}
               >
                 <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
-                  Om bolaget
+                  {t("about.eyebrow")}
                 </p>
                 <h1 className="heading-lg text-foreground mb-6">
                   Shirzad Consulting Group
                 </h1>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p className="body-lg">
-                    Shirzad Consulting Group grundades 2025 med en tydlig ambition: att erbjuda
-                    högkvalitativ projektledning och byggkonsultation till bygg- och industrisektorn
-                    i Skandinavien.
-                  </p>
-                  <p>
-                    Bolaget bygger på över ett decenniums erfarenhet av att leda och samordna komplexa
-                    projekt – från bostad, industri, sjukhus, forskningsanläggningar och parkeringshus
-                    med stålstommar och prefabricerade betongkonstruktioner!
-                  </p>
-                  <p>
-                    Vi kombinerar djup teknisk kompetens med strukturerat projektledarskap för att
-                    säkerställa att varje projekt levereras med precision, i tid och inom budget.
-                  </p>
+                  <p className="body-lg">{t("about.p1")}</p>
+                  <p>{t("about.p2")}</p>
+                  <p>{t("about.p3")}</p>
                 </div>
               </motion.div>
 
@@ -86,7 +77,7 @@ const OmBolaget = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-6">
-                  Kärnkompetenser
+                  {t("about.coreHeading")}
                 </p>
                 <ul className="space-y-4">
                   {strengths.map((c, i) => (
@@ -108,7 +99,7 @@ const OmBolaget = () => {
                         tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }}
                       />
                       <Radar
-                        name="Kompetens"
+                        name={t("about.radarName")}
                         dataKey="value"
                         stroke="hsl(var(--navy, var(--primary)))"
                         fill="hsl(var(--navy, var(--primary)))"
@@ -128,13 +119,13 @@ const OmBolaget = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
-                Våra värderingar
+                {t("about.valuesEyebrow")}
               </p>
               <h2 className="heading-lg text-foreground mb-12">
-                Det vi står för
+                {t("about.valuesHeading")}
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
-                {values.map((v, i) => (
+                {values.map((v) => (
                   <div key={v.title} className="border border-border bg-card p-8">
                     <v.icon className="w-8 h-8 text-navy mb-5" strokeWidth={1.5} />
                     <h3 className="font-serif text-lg text-foreground mb-3">{v.title}</h3>
