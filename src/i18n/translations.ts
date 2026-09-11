@@ -14,7 +14,6 @@ const sv: Dict = {
 
   // Hero
   "hero.imageAlt": "Byggarbetsplats med stålkonstruktion",
-  "hero.eyebrow": "Teknikkonsult · Lund / Malmö",
   "hero.title": "Ingenjörskompetens genom hela projektet",
   "hero.lead":
     "Vi leder, projekterar och levererar bygg- och industriprojekt – med projektledning, konstruktion, supply chain, engineering och digitalisering under samma tak.",
@@ -197,7 +196,6 @@ const en: Dict = {
   "nav.language": "Language",
 
   "hero.imageAlt": "Construction site with steel structure",
-  "hero.eyebrow": "Engineering consultancy · Lund / Malmö",
   "hero.title": "Engineering expertise through the entire project",
   "hero.lead":
     "We lead, design and deliver construction and industrial projects – with project management, structural design, supply chain, engineering and digitalisation under one roof.",

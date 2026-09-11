@@ -33,15 +33,6 @@ const HeroSection = () => {
       <div className="relative container-narrow px-6 md:px-12 lg:px-24 pb-16 md:pb-24">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-6">
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-xs font-medium tracking-[0.2em] uppercase text-muted-foreground mb-6"
-            >
-              {t("hero.eyebrow")}
-            </motion.p>
-
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
