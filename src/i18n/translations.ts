@@ -14,9 +14,43 @@ const sv: Dict = {
 
   // Hero
   "hero.imageAlt": "Byggarbetsplats med stålkonstruktion",
+  "hero.eyebrow": "Teknikkonsult · Lund / Malmö",
+  "hero.title": "Ingenjörskompetens genom hela projektet",
   "hero.lead":
-    "Projektledning och byggkonsultation med erfarenhet och precision. Vi leder och strukturerar bygg- och industriprojekt från idé till färdig leverans.",
+    "Vi leder, projekterar och levererar bygg- och industriprojekt – med projektledning, konstruktion, supply chain, engineering och digitalisering under samma tak.",
   "hero.cta": "Kontakta oss",
+  "hero.ctaSecondary": "Se våra tjänster",
+  "hero.stat1Value": "3",
+  "hero.stat1Label": "Tjänsteområden",
+  "hero.stat2Value": "10+",
+  "hero.stat2Label": "År i branschen",
+  "hero.stat3Value": "Bygg & industri",
+  "hero.stat3Label": "Vårt hemmaplan",
+
+  // Home – why us
+  "home.why.eyebrow": "Varför Shirzad Consulting Group",
+  "home.why.heading": "En partner – hela vägen från idé till överlämning",
+  "home.why.lead":
+    "Vi kombinerar teknisk specialistkompetens med struktur, kommersiell förståelse och digitala arbetssätt. Det gör att färre saker faller mellan stolarna – och att projektet håller tid, budget och kvalitet.",
+  "home.why.1.title": "Bredd i en och samma leverans",
+  "home.why.1.desc":
+    "Projektledning, konstruktion, inköp, engineering och IT – du behöver inte koordinera flera leverantörer.",
+  "home.why.2.title": "Teknisk höjd",
+  "home.why.2.desc":
+    "Stålstommar, prefab-betong och 3D-modellering med underlag som fungerar hela vägen till fabrik och montage.",
+  "home.why.3.title": "Struktur och spårbarhet",
+  "home.why.3.desc":
+    "Tydliga krav, uppföljning och dokumentation – från RFQ och projektering till FAT, SAT och överlämning.",
+  "home.why.4.title": "Nära samarbete",
+  "home.why.4.desc":
+    "En kontaktpunkt, snabba beslut och rak kommunikation mellan beställare, konsulter och entreprenörer.",
+
+  // Home – CTA band
+  "home.cta.heading": "Har du ett projekt på gång?",
+  "home.cta.lead":
+    "Berätta kort om uppdraget så återkommer vi med hur vi kan bidra – oavsett om det gäller projektledning, konstruktion, inköp eller digitalisering.",
+  "home.cta.button": "Ta kontakt",
+  "home.cta.secondary": "Läs om bolaget",
 
   // Footer
   "footer.rights": "© 2025 Shirzad Consulting Group",
@@ -163,9 +197,41 @@ const en: Dict = {
   "nav.language": "Language",
 
   "hero.imageAlt": "Construction site with steel structure",
+  "hero.eyebrow": "Engineering consultancy · Lund / Malmö",
+  "hero.title": "Engineering expertise through the entire project",
   "hero.lead":
-    "Project management and construction consultancy built on experience and precision. We lead and structure construction and industrial projects from idea to completed delivery.",
+    "We lead, design and deliver construction and industrial projects – with project management, structural design, supply chain, engineering and digitalisation under one roof.",
   "hero.cta": "Contact us",
+  "hero.ctaSecondary": "Explore our services",
+  "hero.stat1Value": "3",
+  "hero.stat1Label": "Service areas",
+  "hero.stat2Value": "10+",
+  "hero.stat2Label": "Years in the industry",
+  "hero.stat3Value": "Construction & industry",
+  "hero.stat3Label": "Our home ground",
+
+  "home.why.eyebrow": "Why Shirzad Consulting Group",
+  "home.why.heading": "One partner – from first idea to final handover",
+  "home.why.lead":
+    "We combine technical specialist expertise with structure, commercial understanding and digital ways of working. Fewer things fall between the cracks – and the project keeps to time, budget and quality.",
+  "home.why.1.title": "Breadth in one delivery",
+  "home.why.1.desc":
+    "Project management, structural design, procurement, engineering and IT – no need to coordinate several suppliers.",
+  "home.why.2.title": "Technical depth",
+  "home.why.2.desc":
+    "Steel frames, precast concrete and 3D modelling with documentation that works all the way to factory and erection.",
+  "home.why.3.title": "Structure and traceability",
+  "home.why.3.desc":
+    "Clear requirements, follow-up and documentation – from RFQ and design to FAT, SAT and handover.",
+  "home.why.4.title": "Close collaboration",
+  "home.why.4.desc":
+    "One point of contact, fast decisions and straight communication between clients, consultants and contractors.",
+
+  "home.cta.heading": "Do you have a project coming up?",
+  "home.cta.lead":
+    "Tell us briefly about the assignment and we will come back with how we can contribute – whether it concerns project management, design, procurement or digitalisation.",
+  "home.cta.button": "Get in touch",
+  "home.cta.secondary": "About the company",
 
   "footer.rights": "© 2025 Shirzad Consulting Group",
 
