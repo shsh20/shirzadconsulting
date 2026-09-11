@@ -14,9 +14,43 @@ const sv: Dict = {
 
   // Hero
   "hero.imageAlt": "Byggarbetsplats med stålkonstruktion",
+  "hero.eyebrow": "Teknikkonsult · Lund / Malmö",
+  "hero.title": "Ingenjörskompetens genom hela projektet",
   "hero.lead":
-    "Projektledning och byggkonsultation med erfarenhet och precision. Vi leder och strukturerar bygg- och industriprojekt från idé till färdig leverans.",
+    "Vi leder, projekterar och levererar bygg- och industriprojekt – med projektledning, konstruktion, supply chain, engineering och digitalisering under samma tak.",
   "hero.cta": "Kontakta oss",
+  "hero.ctaSecondary": "Se våra tjänster",
+  "hero.stat1Value": "3",
+  "hero.stat1Label": "Tjänsteområden",
+  "hero.stat2Value": "10+",
+  "hero.stat2Label": "År i branschen",
+  "hero.stat3Value": "Bygg & industri",
+  "hero.stat3Label": "Vårt hemmaplan",
+
+  // Home – why us
+  "home.why.eyebrow": "Varför Shirzad Consulting Group",
+  "home.why.heading": "En partner – hela vägen från idé till överlämning",
+  "home.why.lead":
+    "Vi kombinerar teknisk specialistkompetens med struktur, kommersiell förståelse och digitala arbetssätt. Det gör att färre saker faller mellan stolarna – och att projektet håller tid, budget och kvalitet.",
+  "home.why.1.title": "Bredd i en och samma leverans",
+  "home.why.1.desc":
+    "Projektledning, konstruktion, inköp, engineering och IT – du behöver inte koordinera flera leverantörer.",
+  "home.why.2.title": "Teknisk höjd",
+  "home.why.2.desc":
+    "Stålstommar, prefab-betong och 3D-modellering med underlag som fungerar hela vägen till fabrik och montage.",
+  "home.why.3.title": "Struktur och spårbarhet",
+  "home.why.3.desc":
+    "Tydliga krav, uppföljning och dokumentation – från RFQ och projektering till FAT, SAT och överlämning.",
+  "home.why.4.title": "Nära samarbete",
+  "home.why.4.desc":
+    "En kontaktpunkt, snabba beslut och rak kommunikation mellan beställare, konsulter och entreprenörer.",
+
+  // Home – CTA band
+  "home.cta.heading": "Har du ett projekt på gång?",
+  "home.cta.lead":
+    "Berätta kort om uppdraget så återkommer vi med hur vi kan bidra – oavsett om det gäller projektledning, konstruktion, inköp eller digitalisering.",
+  "home.cta.button": "Ta kontakt",
+  "home.cta.secondary": "Läs om bolaget",
 
   // Footer
   "footer.rights": "© 2025 Shirzad Consulting Group",
