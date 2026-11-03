@@ -3,6 +3,13 @@ export type Lang = "sv" | "en";
 type Dict = Record<string, string>;
 
 const sv: Dict = {
+  "cookies.title": "Ditt val av cookies",
+  "cookies.description": "Med ditt godkännande använder Shirzad Consulting Group Google Analytics för att mäta besök, sidvisningar och ungefärlig ort. Statistikcookies hjälper oss att förbättra webbplatsen. Vi skickar inte innehållet i kontaktformulär eller CV till Google Analytics. Du kan neka och ändå använda hela webbplatsen, och ändra ditt val via Cookieinställningar längst ner på sidan. Ditt val sparas i den här webbläsaren.",
+  "cookies.googlePrivacy": "Googles integritetspolicy",
+  "cookies.deny": "Neka statistik",
+  "cookies.accept": "Godkänn statistik",
+  "cookies.settings": "Cookieinställningar",
+  "cookies.close": "Stäng",
   // Nav
   "nav.services": "Tjänster",
   "nav.projects": "Referensprojekt",
@@ -187,6 +194,13 @@ const sv: Dict = {
 };
 
 const en: Dict = {
+  "cookies.title": "Your cookie choice",
+  "cookies.description": "With your permission, Shirzad Consulting Group uses Google Analytics to measure visits, page views and approximate city. Statistics cookies help us improve the website. We do not send contact form contents or CVs to Google Analytics. You can decline and still use the entire website, and change your choice through Cookie settings at the bottom of the page. Your choice is saved in this browser.",
+  "cookies.googlePrivacy": "Google privacy policy",
+  "cookies.deny": "Decline statistics",
+  "cookies.accept": "Accept statistics",
+  "cookies.settings": "Cookie settings",
+  "cookies.close": "Close",
   "nav.services": "Services",
   "nav.projects": "Reference projects",
   "nav.about": "About us",

@@ -14,6 +14,7 @@ import Kontakt from "./pages/Kontakt";
 import Karriar from "./pages/Karriar";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./i18n/LanguageContext";
+import StatisticsConsent from "./components/StatisticsConsent";
 
 
 
@@ -27,6 +28,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <StatisticsConsent />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tjanster" element={<Tjanster />} />
