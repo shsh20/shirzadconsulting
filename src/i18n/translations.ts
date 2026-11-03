@@ -195,7 +195,7 @@ const sv: Dict = {
 
 const en: Dict = {
   "cookies.title": "Your cookie choice",
-  "cookies.description": "With your permission, Shirzad Consulting Group uses Google Analytics to measure visits, page views and approximate city. Statistics cookies help us improve the website. We do not send contact form contents or CVs to Google Analytics. You can decline and still use the entire website, and change your choice through Cookie settings at the bottom of the page. Your choice is saved in this browser.",
+  "cookies.description": "We use Google Analytics to collect visitor statistics and improve our website. Analytics cookies are used only with your consent, which you can change or withdraw at any time through the cookie settings.",
   "cookies.googlePrivacy": "Google privacy policy",
   "cookies.deny": "Decline statistics",
   "cookies.accept": "Accept statistics",
