@@ -4,7 +4,7 @@ type Dict = Record<string, string>;
 
 const sv: Dict = {
   "cookies.title": "Ditt val av cookies",
-  "cookies.description": "Med ditt godkännande använder Shirzad Consulting Group Google Analytics för att mäta besök, sidvisningar och ungefärlig ort. Statistikcookies hjälper oss att förbättra webbplatsen. Vi skickar inte innehållet i kontaktformulär eller CV till Google Analytics. Du kan neka och ändå använda hela webbplatsen, och ändra ditt val via Cookieinställningar längst ner på sidan. Ditt val sparas i den här webbläsaren.",
+  "cookies.description": "Vi använder Google Analytics för besöksstatistik och förbättring av webbplatsen. Statistikcookies används endast med ditt samtycke, som du när som helst kan ändra eller återkalla via cookieinställningarna.",
   "cookies.googlePrivacy": "Googles integritetspolicy",
   "cookies.deny": "Neka statistik",
   "cookies.accept": "Godkänn statistik",
